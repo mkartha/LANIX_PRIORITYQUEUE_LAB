@@ -10,11 +10,11 @@
  * 
  * */
 
-struct node
+struct Node
 {
 	int priority;
 	void* data;
-	struct node *link;
+	struct Node *next;
 };
 
 
@@ -23,7 +23,7 @@ class PQueue
 {
 
 	private:
-		node *front;
+		Node *front;
 
 	public:
 	PQueue()
@@ -32,8 +32,8 @@ class PQueue
 	}
 		
 	void push(void *item, int priority);
-	void* top();
-	void pop();
+	Node* top();
+	Node* pop();
 	void display();
 
 

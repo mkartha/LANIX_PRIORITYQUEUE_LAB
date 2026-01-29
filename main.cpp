@@ -1,6 +1,7 @@
 #include <iostream>
 
-int maintest()
+int main()
 {
     std::cout << "Hello World!";
+    return 0;
 }

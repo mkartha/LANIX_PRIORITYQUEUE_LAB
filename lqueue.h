@@ -9,7 +9,7 @@
 
 #include <sys/types.h>
 #define __need_sigevent_t 1
-#include "siginfo.h"
+#include "signal.h"
 
 #include <sys/fcntl.h>
 

@@ -36,7 +36,7 @@ void PQueue::push(void *item, int priority)
         front->next=ph;
     }
     else{
-        Node* n=&front->next;
+        Node* n=front->next;
         while(n->next!=nullptr && n->priority<n->next->priority){
             n=n->next;
         }
@@ -55,7 +55,7 @@ void PQueue::push(void *item, int priority)
 /*
  * Delete from Priority Queue
  */
-void* PQueue::top()
+Node* PQueue::top()
 {
     if(front->next==nullptr){
         return NULL;
@@ -67,10 +67,10 @@ void* PQueue::top()
 /*
  * Delete from Priority Queue
  */
-void PQueue::pop()
+Node* PQueue::pop()
 {
  if(front->next==nullptr || front->next->next==nullptr){
-        return NULL;
+        return nullptr;
     }
     else{
         Node* tmp= front->next;
@@ -84,9 +84,9 @@ void PQueue::pop()
 void PQueue::display()
 {
     if(front->next==nullptr){
-        std::cout<<""<<endl;
+        std::cout<<""<<std::endl;
     }
-    ptr=front->next;
+    Node* ptr=front->next;
     while(ptr->next!=nullptr){
         std::cout<<ptr->priority<<" "<<(char*)ptr->data<<std::endl;
         ptr=ptr->next;
