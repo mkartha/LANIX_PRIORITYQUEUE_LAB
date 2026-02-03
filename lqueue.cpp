@@ -78,6 +78,9 @@ lqd_t lq_open (const char *__name, int __oflag, int mode, lq_attr *attr)
 		mylock.unlock();
 		return i;
 	}
+	if(_oflag & FD_CLOEXEC){
+
+	}
 	mylock.unlock();
 	return -1;
 }
@@ -171,7 +174,16 @@ int lq_getattr (lqd_t __msgid, struct lq_attr *__mqstat)
 			std::cout << i << ". " << lqueue_table[i].lq_name << std::endl;
 	return 0;
 }
+
+//Additional Impelemented Function
 int lq_setattr (lqd_t __msgid, const struct lq_attr *__mqstat, struct lq_attr *__omqattr)
 {
-	return 0;
+	if(_omqattr!=NULL){
+		_omqattr->lq_flags=O_NONBLOCK;
+		_omqattr->lq_maxmsg=10;
+		-omqattr->lq_msgsize=1024;
+		_omqattr->lq_curmsgs=0;
+		return 0;
+	}
+	return -1;
 }

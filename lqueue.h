@@ -27,7 +27,7 @@ struct lq_attr {
 
 /* prototypes */
 //lqd_t lq_open (const char *__name, int __oflag, ...);
-lqd_t lq_open (const char *__name, int __oflag);
+lqd_t lq_open (const char * __name,int __oflag);
 lqd_t lq_open (const char *__name, int __oflag, int mode, lq_attr *attr);
 
 int lq_close (lqd_t __msgid);
@@ -37,6 +37,7 @@ ssize_t lq_receive (lqd_t __msgid, char *__msg, size_t __msg_len, unsigned int *
 int lq_notify (lqd_t __msgid, const struct sigevent *__notification);
 int lq_unlink (const char *__name);
 int lq_getattr (lqd_t __msgid, struct lq_attr *__mqstat);
+//Additional implemented function
 int lq_setattr (lqd_t __msgid, const struct lq_attr *__mqstat, struct lq_attr *__omqattr);
 
 #endif /* __LQUEUE_H */
