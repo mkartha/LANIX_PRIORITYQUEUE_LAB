@@ -78,7 +78,7 @@ lqd_t lq_open (const char *__name, int __oflag, int mode, lq_attr *attr)
 		mylock.unlock();
 		return i;
 	}
-	if(_oflag & FD_CLOEXEC){
+	if(__oflag & FD_CLOEXEC){
 
 	}
 	mylock.unlock();
@@ -178,11 +178,11 @@ int lq_getattr (lqd_t __msgid, struct lq_attr *__mqstat)
 //Additional Impelemented Function
 int lq_setattr (lqd_t __msgid, const struct lq_attr *__mqstat, struct lq_attr *__omqattr)
 {
-	if(_omqattr!=NULL){
-		_omqattr->lq_flags=O_NONBLOCK;
-		_omqattr->lq_maxmsg=10;
-		-omqattr->lq_msgsize=1024;
-		_omqattr->lq_curmsgs=0;
+	if(__omqattr!=NULL){
+		__omqattr->lq_flags=O_NONBLOCK;
+		__omqattr->lq_maxmsg=10;
+		__omqattr->lq_msgsize=1024;
+		__omqattr->lq_curmsgs=0;
 		return 0;
 	}
 	return -1;
